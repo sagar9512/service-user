@@ -17,51 +17,41 @@ public class UserServiceImpl implements UserService {
 	UserDao userDao;
 
 	@Override
-	public User saveUser(User user) {
-		return userDao.save(user);
+	public Integer saveUser(User user) {
+		return userDao.saveUser(user);
 	}
 
 	@Override
-	public Optional<User> fetchUserById(Long id) {
-		return userDao.findById(id);
+	public Optional<User> fetchUserById(int id) {
+		return Optional.ofNullable(userDao.fetchUserById(id));
 	}
 
 	@Override
 	public User updateUserDetails(Long id, User user) throws Exception {
-		Optional<User> userDetails = userDao.findById(id);
-		if (userDetails.isPresent()) {
-			if (null != user.getEmail()) {
-				userDetails.get().setEmail(user.getEmail());
-			}
-			if (null != user.getFirstName()) {
-				userDetails.get().setFirstName(user.getFirstName());
-			}
-			if (null != user.getLastName()) {
-				userDetails.get().setLastName(user.getLastName());
-			}
-			if (null != user.getPassword()) {
-				userDetails.get().setPassword(user.getPassword());
-			}
-			if (null != user.getRole()) {
-				userDetails.get().setRole(user.getRole());
-			}
-			if (null != user.getUserId()) {
-				userDetails.get().setUserId(user.getUserId());
-			}
-		} else {
-			throw new Exception("Bad request");
-		}
-		return userDao.save(user);
+		/*
+		 * Optional<User> userDetails = userDao.findById(id); if
+		 * (userDetails.isPresent()) { if (null != user.getEmail()) {
+		 * userDetails.get().setEmail(user.getEmail()); } if (null !=
+		 * user.getFirstName()) { userDetails.get().setFirstName(user.getFirstName()); }
+		 * if (null != user.getLastName()) {
+		 * userDetails.get().setLastName(user.getLastName()); } if (null !=
+		 * user.getPassword()) { userDetails.get().setPassword(user.getPassword()); } if
+		 * (null != user.getRole()) { userDetails.get().setRole(user.getRole()); } if
+		 * (null != user.getUserId()) { userDetails.get().setUserId(user.getUserId()); }
+		 * } else { throw new Exception("Bad request"); } return userDao.save(user);
+		 */
+		return null;
 	}
 
 	@Override
 	public void deleteUser(Long id) throws Exception {
-		userDao.deleteById(id);
+		/* userDao.deleteById(id); */
 	}
 
 	@Override
 	public List<User> fetchAllUsers() {
-		return userDao.findAll();
+		/* return userDao.findAll(); */
+		return null;
 	}
 
 }

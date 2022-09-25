@@ -2,16 +2,22 @@ package com.user.service.model;
 
 import java.util.List;
 
+
+import lombok.Data;
+
+@Data
 public class User {
 
-	private Long userId;
+	public User() {
+	}
+	private int userId;
 	private String email;
 	private String firstName;
 	private String lastName;
 	private String password;
 	private List<Role> role;
 	
-	public User(Long userId, String email, String firstName, String lastName, String password, List<Role> role) {
+	public User(int userId, String email, String firstName, String lastName, String password, List<Role> role) {
 		super();
 		this.userId = userId;
 		this.email = email;
@@ -21,10 +27,10 @@ public class User {
 		this.role = role;
 	}
 	
-	public Long getUserId() {
+	public int getUserId() {
 		return userId;
 	}
-	public void setUserId(Long userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	public String getEmail() {

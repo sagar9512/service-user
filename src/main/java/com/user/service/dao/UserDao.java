@@ -1,11 +1,17 @@
 package com.user.service.dao;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Repository;
 
 import com.user.service.model.User;
 
-@Repository
-public interface UserDao extends JpaRepository<User,Long>{
+public interface UserDao {
+	 Integer saveUser(User user);
+	 User fetchUserById(int id);
+	 User updateUserDetails(Long id , User user) throws Exception;
+	 void deleteUser(Long id)throws Exception;
+	 List<User> fetchAllUsers(); 
 
 }

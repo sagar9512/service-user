@@ -7,8 +7,8 @@ import com.user.service.model.User;
 
 public interface UserService {
 	
-	 User saveUser(User user);
-	 Optional<User> fetchUserById(Long id);
+	 Integer saveUser(User user);
+	 Optional<User> fetchUserById(int id);
 	 User updateUserDetails(Long id , User user) throws Exception;
 	 void deleteUser(Long id)throws Exception;
 	 List<User> fetchAllUsers(); 
